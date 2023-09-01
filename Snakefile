@@ -1,13 +1,13 @@
 MAGS, = glob_wildcards('MAGs/{m}.fa.gz.sig')
 METAGENOMES, = glob_wildcards('metagenomes/{m}.sig')
 
-print(METAGENOMES)
-print(MAGS)
+print("Metag:", METAGENOMES)
+print("MAGs:", MAGS)
 
 rule all:
     input:
         expand('outputs/{m}.cont.csv', m=MAGS),
-        "branchwater.csv",
+        "outputs/manysearch.csv",
 
 rule make_metag_list:
     input:
